@@ -30,8 +30,8 @@ public class VehicleController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public VehicleDTO findById(@PathVariable @Valid VehicleDTO vehicleDTO){
-        return vehicleService.findById(vehicleDTO);
+    public VehicleDTO findById(@PathVariable Integer id){
+        return vehicleService.findById(id);
     }
 
     @DeleteMapping("/{id}")

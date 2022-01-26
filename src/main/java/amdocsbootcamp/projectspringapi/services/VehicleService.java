@@ -35,8 +35,8 @@ public class VehicleService {
                 .collect(Collectors.toList());
     }
 
-    public VehicleDTO findById(VehicleDTO vehicleDTO) {
-        Vehicle vehicle = vehicleRepository.findById(vehicleDTO.getId()).orElseThrow(() -> new RuntimeException("Vehicle not found"));
+    public VehicleDTO findById(Integer id) {
+        Vehicle vehicle = vehicleRepository.findById(id).orElseThrow(() -> new RuntimeException("Vehicle not found"));
         return vehicleMapper.toDTO(vehicle);
     }
 
