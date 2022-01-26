@@ -1,4 +1,4 @@
-package dto.response;
+package amdocsbootcamp.projectspringapi.dto.request;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,13 +1,13 @@
-package services;
+package amdocsbootcamp.projectspringapi.services;
 
-import dto.mapper.VehicleMapper;
-import dto.response.MessageResponseDTO;
-import dto.resquest.VehicleDTO;
-import entities.Vehicle;
+import amdocsbootcamp.projectspringapi.dto.mapper.VehicleMapper;
+import amdocsbootcamp.projectspringapi.dto.request.MessageResponseDTO;
+import amdocsbootcamp.projectspringapi.dto.response.VehicleDTO;
+import amdocsbootcamp.projectspringapi.entities.Vehicle;
+import amdocsbootcamp.projectspringapi.repositories.VehicleRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.VehicleRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,7 +18,7 @@ public class VehicleService {
 
     private final VehicleRepository vehicleRepository;
 
-    private final VehicleMapper vehicleMapper;
+    private final VehicleMapper vehicleMapper = VehicleMapper.INSTANCE;
 
 
     public MessageResponseDTO create(VehicleDTO vehicleDTO) {

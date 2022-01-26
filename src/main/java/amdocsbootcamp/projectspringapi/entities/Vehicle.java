@@ -1,4 +1,4 @@
-package entities;
+package amdocsbootcamp.projectspringapi.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
