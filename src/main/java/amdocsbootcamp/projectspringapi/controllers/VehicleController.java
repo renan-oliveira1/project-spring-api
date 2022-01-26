@@ -27,4 +27,16 @@ public class VehicleController {
 
     @GetMapping
    public List<VehicleDTO> listAll(){return vehicleService.listAll();}
+
+    @GetMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public VehicleDTO findById(@PathVariable @Valid VehicleDTO vehicleDTO){
+        return vehicleService.findById(vehicleDTO);
+    }
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Integer id){
+        vehicleService.delete(id);
+    }
 }

@@ -34,4 +34,14 @@ public class VehicleService {
                 .map(vehicleMapper::toDTO)
                 .collect(Collectors.toList());
     }
+
+    public VehicleDTO findById(VehicleDTO vehicleDTO) {
+        Vehicle vehicle = vehicleRepository.findById(vehicleDTO.getId()).orElseThrow(() -> new RuntimeException("Vehicle not found"));
+        return vehicleMapper.toDTO(vehicle);
+    }
+
+    public void delete(Integer id) {
+        vehicleRepository.findById(id).orElseThrow(() -> new RuntimeException("Vehicle not found"));
+        vehicleRepository.deleteById(id);
+    }
 }
