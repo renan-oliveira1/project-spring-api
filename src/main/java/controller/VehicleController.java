@@ -10,7 +10,7 @@ import services.VehicleService;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/vehicle")
+@RequestMapping("/api/v1/vehicle")
 @AllArgsConstructor
 public class VehicleController {
 
