@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repositories.VehicleRepository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class VehicleService {
@@ -23,5 +26,12 @@ public class VehicleService {
         Vehicle registeredVehicle = vehicleRepository.save(vehicle);
 
         return MessageResponseDTO.builder().message("Vehicle successfully registered with plate " + registeredVehicle.getPlate()).build();
+    }
+
+    public List<VehicleDTO> listAll() {
+        List<Vehicle> vehicles = vehicleRepository.findAll();
+        return vehicles.stream()
+                .map(vehicleMapper::toDTO)
+                .collect(Collectors.toList());
     }
 }
